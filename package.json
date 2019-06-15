@@ -6,8 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@odinternational/exodus_v2_qa": "^1.1.2",
     "body-parse": "^0.1.0",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^8.0.0",
     "express": "~4.16.0",
