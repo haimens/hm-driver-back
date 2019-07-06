@@ -9,7 +9,7 @@ router.get('/all/detail/customer/:customer_token', async (req, res, next) => {
     try {
         const resBody = func.configSuccess(
             await VNSMSAction.findCustomerSMSList(
-                req.params, req.body, req.query
+                req.params, req.body, req.query, req.driver.verify_info
             )
         );
 
@@ -27,7 +27,7 @@ router.post('/send/customer/:customer_token', async (req, res, next) => {
 
         const resBody = func.configSuccess(
             await VNSMSAction.sendSMSWithCustomer(
-                req.params, req.body, req.query
+                req.params, req.body, req.query, req.driver.verify_info
             )
         );
         res.json(resBody);
