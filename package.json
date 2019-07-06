@@ -18,6 +18,7 @@
     "morgan": "~1.9.0",
     "nodemon": "^1.19.1",
     "od-utility": "^1.4.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "urlencode": "^1.1.0"
   }
 }
