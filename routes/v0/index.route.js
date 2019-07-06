@@ -16,10 +16,10 @@ router.use(cors());
 router.use(
     "/",
     router_checker({
-        token_type_zero: [],
+        token_type_zero: ['notify'],
         token_type_one: [],
         token_type_two: [],
-        token_type_three: []
+        token_type_three: ['salary', 'wage', 'trip', 'sms']
     })
 );
 
@@ -42,10 +42,21 @@ router.use("/signup", signupRoute);
 router.use("/logout", logoutRoute);
 router.use("/forget", forgetRoute);
 
+
+const salaryRoute = require('./salary.route');
+const smsRoute = require('./sms.route');
+const tripRoute = require('./trip.route');
+const wageRoute = require('./wage.route');
+
+router.use('/salary', salaryRoute);
+router.use('/sms', smsRoute);
+router.use('/trip', tripRoute);
+router.use('/wage', wageRoute);
+
 // App routes
 
 router.use('/', async (req, res, next) => {
-    res.json({ status: false, message: 'DRIVER V0 INDEX REACHED' });
+    res.json({status: false, message: 'DRIVER V0 INDEX REACHED'});
 });
 
 module.exports = router;
