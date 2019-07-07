@@ -36,6 +36,8 @@ router.use(
     )
 );
 
+
+
 // Exodus routes
 router.use("/login", loginRoute);
 router.use("/signup", signupRoute);
