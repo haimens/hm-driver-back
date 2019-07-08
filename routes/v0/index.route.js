@@ -19,7 +19,7 @@ router.use(
         token_type_zero: ['notify'],
         token_type_one: [],
         token_type_two: [],
-        token_type_three: ['salary', 'wage', 'trip', 'sms']
+        token_type_three: ['salary', 'wage', 'trip', 'sms', 'driver']
     })
 );
 
@@ -37,7 +37,6 @@ router.use(
 );
 
 
-
 // Exodus routes
 router.use("/login", loginRoute);
 router.use("/signup", signupRoute);
@@ -50,11 +49,13 @@ const smsRoute = require('./sms.route');
 const tripRoute = require('./trip.route');
 const wageRoute = require('./wage.route');
 
+const driverRoute = require('./driver.route');
+
 router.use('/salary', salaryRoute);
 router.use('/sms', smsRoute);
 router.use('/trip', tripRoute);
 router.use('/wage', wageRoute);
-
+router.use('/driver', driverRoute);
 // App routes
 
 router.use('/', async (req, res, next) => {
