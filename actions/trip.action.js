@@ -10,7 +10,8 @@ class VNTripAction {
 
             return await coreConn.coreRequest(
                 'GET',
-                ['trip', 'all', 'detail', 'driver', realm_token, driver_token]
+                ['trip', 'all', 'detail', 'driver', realm_token, driver_token],
+                query, {}, {}
             );
         } catch (e) {
             throw e;
@@ -24,7 +25,8 @@ class VNTripAction {
 
             return await coreConn.coreRequest(
                 'GET',
-                ['trip', 'all', 'active', 'driver', realm_token, driver_token]
+                ['trip', 'all', 'active', 'driver', realm_token, driver_token],
+                query, {}, {}
             );
         } catch (e) {
             throw e;
