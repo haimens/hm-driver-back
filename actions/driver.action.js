@@ -18,6 +18,7 @@ class VNDriverAction {
             throw e;
         }
     }
+    
 
     static async modifyDriverInfo(params, body, query, auth) {
         try {
