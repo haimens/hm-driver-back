@@ -26,7 +26,7 @@ class VNWageAction extends VNAction {
             const {realm_token, driver_token} = this.checkRealmToken(auth);
 
             return await coreConn.coreRequest(
-                '',
+                'GET',
                 ['wage', 'sum', 'driver', realm_token, driver_token],
                 query, {}, {}
             );
