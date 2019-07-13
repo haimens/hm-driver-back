@@ -19,7 +19,7 @@ router.use(
         token_type_zero: ['notify'],
         token_type_one: [],
         token_type_two: [],
-        token_type_three: ['salary', 'wage', 'trip', 'sms', 'driver']
+        token_type_three: ['salary', 'wage', 'trip', 'sms', 'driver', 'setting']
     })
 );
 
