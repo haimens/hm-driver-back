@@ -13,6 +13,8 @@ class VNSettingAction extends VNAction {
 
 
             const {setting_key} = query;
+            //@contact_cell for dispatch center number call
+            //@contact_email for dispatch center email
             if (!setting_key) func.throwErrorWithMissingParam('setting_key');
 
             return await coreConn.coreRequest(

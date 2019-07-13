@@ -43,14 +43,11 @@ router.use("/signup", signupRoute);
 router.use("/logout", logoutRoute);
 router.use("/forget", forgetRoute);
 
-
 const salaryRoute = require('./salary.route');
 const smsRoute = require('./sms.route');
 const tripRoute = require('./trip.route');
 const wageRoute = require('./wage.route');
-
 const driverRoute = require('./driver.route');
-
 const settingRoute = require('./setting.route');
 
 router.use('/salary', salaryRoute);
@@ -58,7 +55,6 @@ router.use('/sms', smsRoute);
 router.use('/trip', tripRoute);
 router.use('/wage', wageRoute);
 router.use('/driver', driverRoute);
-
 router.use('/setting', settingRoute);
 // App routes
 
