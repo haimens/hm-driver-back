@@ -51,11 +51,15 @@ const wageRoute = require('./wage.route');
 
 const driverRoute = require('./driver.route');
 
+const settingRoute = require('./setting.route');
+
 router.use('/salary', salaryRoute);
 router.use('/sms', smsRoute);
 router.use('/trip', tripRoute);
 router.use('/wage', wageRoute);
 router.use('/driver', driverRoute);
+
+router.use('/setting', settingRoute);
 // App routes
 
 router.use('/', async (req, res, next) => {
