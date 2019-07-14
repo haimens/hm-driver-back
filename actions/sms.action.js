@@ -27,12 +27,12 @@ class VNSMSAction {
             const {customer_token} = params;
             const {realm_token} = auth;
 
-            console.log(body);
+
             if (!customer_token) func.throwErrorWithMissingParam('customer_token');
             return coreConn.coreRequest(
                 'POST',
                 ['message', 'send', 'customer', realm_token, customer_token],
-                {}, {...body, type: 2}
+                {}, {}, {...body, type: 2}
             );
         } catch (e) {
             throw e;
