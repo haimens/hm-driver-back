@@ -48,6 +48,22 @@ class VNTripAction {
         }
     }
 
+    static async modifyTripDetail(params, body, query, auth) {
+        try {
+
+            const {realm_token} = auth;
+            const {trip_token} = params;
+
+            return await coreConn.coreRequest(
+                'PATCH',
+                ['trip', 'detail', realm_token, trip_token],
+                {}, {}, body
+            );
+        } catch (e) {
+            throw e;
+        }
+    }
+
 
 }
 

@@ -51,5 +51,18 @@ router.get('/detail/:trip_token', async (req, res, next) => {
     }
 });
 
+router.patch('/detail/:trip_token', async (req, res, next) => {
+    try {
+        const resBody = func.configSuccess(
+            await VNTripAction.modifyTripDetail(
+                req.params, req.body, req.query, req.driver.verify_info
+            )
+        );
+        res.json(resBody);
+    } catch (e) {
+        next(e);
+    }
+});
+
 module.exports = router;
 
