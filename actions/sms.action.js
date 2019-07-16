@@ -8,12 +8,11 @@ class VNSMSAction {
     static async findCustomerSMSList(params, body, query, auth) {
         try {
             const {customer_token} = params;
-            const {realm_token} = auth;
+
             if (!customer_token) func.throwErrorWithMissingParam('customer_token');
-            if (!realm_token) func.throwErrorWithMissingParam('realm_token');
             return coreConn.coreRequest(
                 'GET',
-                ['message', 'all', 'detail', 'customer', realm_token, customer_token],
+                ['message', 'all', 'detail', 'customer', customer_token],
                 query, {}, {}
             );
         } catch (e) {
