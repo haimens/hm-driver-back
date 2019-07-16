@@ -49,7 +49,7 @@ router.get('/detail/key', async (req, res, next) => {
     try {
         const resBody = func.configSuccess(
             await VNSettingAction.findSettingWithKey(
-                req.params, req.query, req.body, req.driver.verify_info
+                req.params,  req.body, req.query,req.driver.verify_info
             )
         );
         res.json(resBody);
