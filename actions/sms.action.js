@@ -1,8 +1,10 @@
 const func = require('od-utility');
 const coreConn = require('../services/core.conn');
 
+const VNAction = require('./action.model');
 
-class VNSMSAction {
+
+class VNSMSAction extends VNAction {
 
 
     static async findCustomerSMSList(params, body, query, auth) {
@@ -24,14 +26,14 @@ class VNSMSAction {
     static async sendSMSWithCustomer(params, body, query, auth) {
         try {
             const {customer_token} = params;
-            const {realm_token} = auth;
+            const {realm_token, driver_token} = this.checkRealmToken(auth);
 
 
             if (!customer_token) func.throwErrorWithMissingParam('customer_token');
             return coreConn.coreRequest(
                 'POST',
                 ['message', 'send', 'customer', realm_token, customer_token],
-                {}, {}, {...body, type: 2}
+                {driver_token}, {}, {...body, type: 2}
             );
         } catch (e) {
             throw e;
