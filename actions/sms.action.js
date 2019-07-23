@@ -39,6 +39,23 @@ class VNSMSAction extends VNAction {
             throw e;
         }
     }
+
+    static async sendSMSWithDispatch(params, body, query, auth) {
+        try {
+            const {customer_token} = params;
+            const {realm_token, driver_token} = this.checkRealmToken(auth);
+
+
+            if (!customer_token) func.throwErrorWithMissingParam('customer_token');
+            return coreConn.coreRequest(
+                'POST',
+                ['message', 'send', 'dispatch', realm_token],
+                {driver_token}, {}, body
+            );
+        } catch (e) {
+            throw e;
+        }
+    }
 }
 
 
