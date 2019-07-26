@@ -19,7 +19,7 @@ router.use(
         token_type_zero: ['notify'],
         token_type_one: [],
         token_type_two: [],
-        token_type_three: ['salary', 'wage', 'trip', 'sms', 'driver', 'setting']
+        token_type_three: ['salary', 'wage', 'trip', 'sms', 'driver', 'setting', 'flight']
     })
 );
 
@@ -49,6 +49,7 @@ const tripRoute = require('./trip.route');
 const wageRoute = require('./wage.route');
 const driverRoute = require('./driver.route');
 const settingRoute = require('./setting.route');
+const flightRoute = require('./flight.route');
 
 router.use('/salary', salaryRoute);
 router.use('/sms', smsRoute);
@@ -56,6 +57,7 @@ router.use('/trip', tripRoute);
 router.use('/wage', wageRoute);
 router.use('/driver', driverRoute);
 router.use('/setting', settingRoute);
+router.use('/flightRoute', flightRoute);
 // App routes
 
 router.use('/', async (req, res, next) => {
