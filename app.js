@@ -11,19 +11,15 @@ const apiRoute = require('./routes/api.route');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // TODO: custom routes
 app.use(express.static(path.join(__dirname, `${CLIENT_NAME}/build`)));
 app.use('/api', apiRoute);
 
-app.get('*', (req, res, next) => {
-    if (!CLIENT_NAME) {
-        return next('CLIENT NAME IS NOT SPECIFIED')
-    }
-    const file_path = `${__dirname}/${CLIENT_NAME}/build/index.html`;
-    res.sendFile(path.join(file_path));
+app.get('/', (req, res, next) => {
+    res.json({status: true, message: "VN DRIVER INDEX REACHED"});
 });
 
 // catch 404 and forward to error handler
